@@ -127,8 +127,8 @@ class ResponseMessage {
   static const String BAD_REQUEST = "bad request, try again later";
   static const String FORBIDDEN = "forbiden request";
   static const String UNAUTHORISED = "use is unautherised";
-  static const String NOT_FOUND = "success";
-  static const String INTERNAL_SERVER_ERROR = "url is not found";
+  static const String NOT_FOUND = "Url is not found, try again later";
+  static const String INTERNAL_SERVER_ERROR = "server error";
 
   // local status code
   static const String UNKNOW = "some thing went wrong";

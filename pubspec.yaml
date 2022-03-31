@@ -48,6 +48,9 @@ dependencies:
     git:
       url: https://github.com/chornthorn/data_connection_checker.git
       ref: master
+  lottie: ^1.2.2
+  country_code_picker: ^2.0.2
+  image_picker: ^0.8.4+11
 
 dev_dependencies:
   flutter_test:
@@ -83,6 +86,11 @@ flutter:
     - assets/images/left_arrow_ic.svg
     - assets/images/solid_circle_ic.svg
     - assets/images/right_arrow_ic.svg
+    - assets/images/photo_camera_ic.svg
+    - assets/json/empty.json
+    - assets/json/error.json
+    - assets/json/loading.json
+    - assets/json/success.json
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

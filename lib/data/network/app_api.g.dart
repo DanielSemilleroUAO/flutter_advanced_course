@@ -7,7 +7,9 @@ part of 'app_api.dart';
 // **************************************************************************
 
 class _AppServiceClient implements AppServiceClient {
-  _AppServiceClient(this._dio, {this.baseUrl});
+  _AppServiceClient(this._dio, {this.baseUrl}) {
+    baseUrl ??= 'http://danielflutter.mocklab.io';
+  }
 
   final Dio _dio;
 
@@ -28,6 +30,44 @@ class _AppServiceClient implements AppServiceClient {
         _setStreamType<AuthenticationResponse>(
             Options(method: 'POST', headers: <String, dynamic>{}, extra: _extra)
                 .compose(_dio.options, '/customers/login',
+                    queryParameters: queryParameters, data: _data)
+                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = AuthenticationResponse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<ForgotPasswordResponse> forgotPassword(email) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _data = {'email': email};
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<ForgotPasswordResponse>(
+            Options(method: 'POST', headers: <String, dynamic>{}, extra: _extra)
+                .compose(_dio.options, '/customers/forgotPassword',
+                    queryParameters: queryParameters, data: _data)
+                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = ForgotPasswordResponse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<AuthenticationResponse> register(countryMobileCode, name, email,
+      password, mobileNumber, profilePicture) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _data = {
+      'country_mobile_code': countryMobileCode,
+      'name': name,
+      'email': email,
+      'password': password,
+      'mobile_number': mobileNumber,
+      'profile_picture': profilePicture
+    };
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<AuthenticationResponse>(
+            Options(method: 'POST', headers: <String, dynamic>{}, extra: _extra)
+                .compose(_dio.options, '/customers/register',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = AuthenticationResponse.fromJson(_result.data!);

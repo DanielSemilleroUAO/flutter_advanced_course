@@ -1,4 +1,4 @@
 class Constant {
-  static const String baseUrl = "";
+  static const String baseUrl = "http://danielflutter.mocklab.io";
   static const String token = "";
 }
