@@ -38,4 +38,12 @@ class AppStrings {
   static const String success = "Success";
   static const String photoGallery = "Photo from gallery";
   static const String photoCamera = "Photo from camera";
+
+  static const String home = "Home";
+  static const String search = "Search";
+  static const String notifications = "Notifications";
+  static const String settings = "Settings";
+
+  static const String services = "Services";
+  static const String stores = "Stores";
 }
